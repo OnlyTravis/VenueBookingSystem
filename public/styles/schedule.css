@@ -1,0 +1,77 @@
+.schedule-viewer {
+    width: calc(100vw - 20px);
+    height: calc(88vh - 40px);
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    position: relative;
+    padding: 20px;
+}
+.viewer-title {
+    margin-bottom: 10px;
+    display: inline-flex;
+}
+.viewer-title-text {
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.viewer-title .schedule-date-container {
+    display: inline-flex;
+}
+.viewer-title .schedule-colors {
+    position: absolute;
+    right: 30px;
+    width: auto;
+    height: 50px
+}
+.schedule-container {
+    border: 2px solid black;
+    border-radius: 10px;
+    height: 76vh;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+.records-container {
+    position: relative;
+}
+.schedule-canvas {
+    background-color: rgb(223, 223, 223);
+}
+.record {
+    position: absolute;
+    height: 56px;
+    box-shadow: 2px 2px 8px rgb(180, 180, 180);
+    transition: 0.2s;
+    background-color: rgb(132, 255, 132);
+    border: 2px solid rgb(0, 221, 41);
+}
+.record:hover {
+    background-color: rgb(91, 255, 91);
+}
+.record:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+}
+.tooltip {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    z-index: 1;
+    transition: 0.2s;
+    background-color: rgb(245, 255, 211);
+    border: 2px solid black;
+    width: auto;
+    height: auto;
+    top: -60px;
+    left: 30px;
+    padding: 5px;
+}
+.tooltip .tooltip-title {
+    font-size: 0.6cm;
+    font-weight: bold;
+    width: max-content;
+    display: inline-block;
+}
+.tooltip .tooltip-author {
+    font-size: 0.3cm;
+}

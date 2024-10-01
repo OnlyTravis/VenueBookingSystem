@@ -1,0 +1,84 @@
+doctype html
+html
+    head
+        title View Booking
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="stylesheet", href="/static/styles/main.css")
+        link(rel="stylesheet", href="/static/styles/view_booking.css")
+    body
+        script(src="/static/scripts/view_booking.js")
+        if (can_edit && role === "student")
+            script(src="/static/scripts/edit_button_student.js")    
+        if (can_edit && role === "teacher")
+            script(src="/static/scripts/edit_button_teacher.js")    
+        .container
+            .top-bar
+                img(src = '/static/images/school_icon.png' class = 'school-icon') 
+                .title School Venue Booking
+                a(href = '/logout' class = 'logout') 
+                    img(src = '/static/images/logout_icon.png')
+                    div Logout
+            .navigation-bar
+                ul(class = 'navigation')
+                    li
+                        a(href = '/home') Home
+                    li
+                        a(href = '/schedule') Schedule
+                    li 
+                        a(href = '/book_venue') Book Venues
+                    li 
+                        a(href = '/my_requests') My Requests
+                    if (role === "teacher")
+                        li
+                            a(href = '/pending_requests') Pending Requests
+            .main-page
+                .record-container
+                    .record
+                        span(class="title") Title: #{record.title}
+                        .description Description: #{record.description}
+                        .at At: Room #{record.room}
+                        .date On: #{new Date(record.at).toDateString()}
+                        .time From #{record.from_time} to #{record.to_time}
+                        .author By: #{record.author}
+                    if (can_edit)
+                        .buttons-container
+                            button(class="edit-record")
+                                img(src="../static/images/edit.png" alt="Edit Booking")
+                                p(class="tooltip") Edit Booking
+                            button(class="remove-record")
+                                img(src="../static/images/remove.png" alt="Cancel Booking")
+                                p(class="tooltip") Cancel Booking
+                        .edit-container(class="hidden")
+                            img(src="../static/images/down_arrow.png", alt="down_arrow")
+                            .edit-form-container 
+                                form(class="edit-record-form record")
+                                    span(class="title") Title: 
+                                    input(type="text" name="title" value=record.title)
+                                    .container 
+                                        .description Description:
+                                        textarea(name="description" rows="5") #{record.description}
+                                    .container 
+                                        .at At: Room
+                                        select(name="room" value=record.room) 
+                                            each room in rooms
+                                                option #{room}
+                                    .container 
+                                        .date On: 
+                                        input(type="date" name="at" value=record.at.toISOString().split("T")[0])
+                                    .container
+                                        .time From
+                                        input(type="time" name="from_time" value=record.from_time)
+                                        .time to
+                                        input(type="time" name="to_time" value=record.to_time)
+                                    .container
+                                        .reason Reason for edit: 
+                                        textarea(name="reason" rows="5")  
+                                .edit-button-container
+                                    button(class="submit-edit") Submit
+                                    button(class="cancel-edit") Cancel
+                        .cancel-container(class="hidden")
+                            span(class="title") Cancel Booking:
+                            form(class="cancel-booking")
+                                label(for="reason") Reason:     
+                                textarea(name="reason" rows="5") 
+                            button(class="submit-cancel") Submit

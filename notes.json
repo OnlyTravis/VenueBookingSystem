@@ -1,0 +1,30 @@
+{
+    "english" : {
+        "why districts are redeveloped" : [
+            "structural problem",
+            "to give a better look of the city - suddenly old streets between modern cities",
+            "city developement - better use in terms of economy",
+            "reuse land - e.g. HK"
+        ],
+        "what problem redevelopement cause" : [
+            "loss of traditional streets - historical value",
+            "residents need to move out to another place w.i. "
+        ],
+        "what do to reduce problem residents face" : [
+            "provide a temporary or alternate housing for the residents",
+            "keep places with historical value intact or try to preserve the look"
+        ]
+    },
+    "chem2023" : [
+        {
+            "a" : "Alkaline Earth Metal",
+            "b" : {
+                "i" : "Ca(OH)2(aq) + CO2(g) ---> CaCO3(s) + H2O(l)",
+                "ii" : "Ca(HCO3)2"
+            },
+            "c" : {
+                
+            }
+        }
+    ]
+}

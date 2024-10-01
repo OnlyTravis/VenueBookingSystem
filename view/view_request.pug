@@ -1,0 +1,78 @@
+doctype html
+html
+    head
+        title View Request
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="stylesheet", href="/static/styles/main.css")
+        link(rel="stylesheet", href="/static/styles/view_request.css")
+    body
+        if (can_remove)
+            script(src="/static/scripts/cancel_request.js")
+        if (role === "teacher")
+            script(src="/static/scripts/review_request.js")
+        .container
+            .top-bar
+                img(src = '/static/images/school_icon.png' class = 'school-icon') 
+                .title School Venue Booking
+                a(href = '/logout' class = 'logout') 
+                    img(src = '/static/images/logout_icon.png')
+                    div Logout
+            .navigation-bar
+                ul(class = 'navigation')
+                    li
+                        a(href = '/home') Home
+                    li
+                        a(href = '/schedule') Schedule
+                    li 
+                        a(href = '/book_venue') Book Venues
+                    li 
+                        a(href = '/my_requests') My Requests
+                    if (role === "teacher")
+                        li
+                            a(href = '/pending_requests') Pending Requests
+            .main-page
+                .request-container
+                    case request.type
+                        when 0
+                            span(class="title") Request: Book Venue
+                        when 1
+                            span(class="title") Request: Cancel Booking
+                        when 2
+                            span(class="title") Request: Change Booking
+                    p(class="status") Status:
+                        case request.status
+                            when 0
+                                span(style="background-color: yellow;") Pending
+                            when 1
+                                span(style="background-color: red;") Rejected
+                            when 2
+                                span(style="background-color: lime;") Confirmed
+                    a(class="record-container" href=`../../view_booking/${record_1.record_id}`)
+                        span(class="title") Title: #{record_1.title}
+                        .description Description: #{record_1.description}
+                        .at At: Room #{record_1.room}
+                        .date On: #{new Date(record_1.at).toDateString()}
+                        .time From #{record_1.from_time} to #{record_1.to_time}
+                        .author By: #{record_1.author}
+                        .sub-text (Click to view booking)
+                    p(class="reason") Reason: #{request.reason}
+                    p(class="author") By: #{request.author}
+                    if (can_remove)
+                        button(class="cancel-request")
+                            img(src="/static/images/cross_icon.png" alt="Cancel Request")
+                            p(class="tooltip") Cancel Request
+                    if (request.status === 0 && role === "teacher")
+                        .buttons-container
+                            button(class="confirm-request")
+                                img(src="/static/images/confirm.png" alt="Confirm Request")
+                                p(class="tooltip") Approve Request
+                            button(class="reject-request")
+                                img(src="/static/images/reject.png" alt="Reject Request")
+                                p(class="tooltip") Reject Request
+                        .reject-container.hidden
+                            form(class="reject-request-form")
+                                label(for="reason") Reason for rejection:
+                                br
+                                textarea(type="text" name="reason" rows="4")
+                                br
+                            button(class="reject-button") Reject

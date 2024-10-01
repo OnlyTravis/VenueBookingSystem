@@ -1,0 +1,79 @@
+.profile {
+    background-color: white;
+    border-radius: 10px;
+    width: calc(40vw - 30px);
+    height: calc(40vh);
+    padding: 10px;
+    margin-right: 10px;
+    position: relative;
+}
+.profile > img {
+    width: 50px;
+    height: 50px;
+}
+.profile > p {
+    position: absolute;
+    left: 70px;
+    font-size: large;
+}
+.profile > .username {
+    top: 0px;
+}
+.profile > .role {
+    top: 20px;
+}
+.profile > .change-password-container {
+    border: 1px solid black;
+    padding: 10px;
+    width: max-content;
+}
+.profile > .change-password-container > .change-password-table {
+    text-align: right;
+}
+.profile > .change-password-container.hidden {
+    display: none;
+}
+.notifications {
+    background-color: white;
+    border-radius: 10px;
+    width: calc(60vw - 40px);
+    height: calc(90vh - 40px);
+    padding: 10px;
+}
+.request {
+    display: flex;
+    width: calc(60vw - 60px);
+    height: 5vh;
+    border: 1px solid black;
+    padding-left: 5px;
+    margin-top: 5px;
+    font-size: large;
+    border-radius: 10px;
+    background-color: rgb(222, 222, 222);
+    transition: 0.1s;
+    box-shadow: 2px 2px 5px rgb(160, 160, 160);
+}
+.request:hover {
+    background-color: rgb(240, 240, 240);
+}
+.request > .status {
+    margin-left: 5px;
+    font-weight: bold;
+}
+.request > .status.rejected {
+    color: red;
+}
+.request > .status.confirmed {
+    color: rgb(12, 197, 12);
+}
+.notification-title {
+    display: flex;
+}
+.notification-title > span {
+    font-size: x-large;
+    font-weight: bold;
+}
+.notification-title > img {
+    width: 25px;
+    height: 25px;
+}

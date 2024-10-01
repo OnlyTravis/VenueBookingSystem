@@ -1,0 +1,68 @@
+doctype html
+html
+    head
+        title Home
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="stylesheet", href="/static/styles/main.css")
+        link(rel="stylesheet", href="/static/styles/home.css")
+    body
+        script(src="/static/scripts/home.js")
+        .container
+            .top-bar
+                img(src = '/static/images/school_icon.png' class = 'school-icon') 
+                .title School Venue Booking
+                a(href = '/logout' class = 'logout') 
+                    img(src = '/static/images/logout_icon.png')
+                    div Logout
+            .navigation-bar
+                ul(class = 'navigation')
+                    li
+                        a(href = '/home') Home
+                    li
+                        a(href = '/schedule') Schedule
+                    li 
+                        a(href = '/book_venue') Book Venues
+                    li 
+                        a(href = '/my_requests') My Requests
+                    if (role === "teacher")
+                        li
+                            a(href = '/pending_requests') Pending Requests
+            .main-page
+                .profile
+                    img(src="./static/images/user.png" alt="user.png")
+                    p(class="username") Username: #{username}
+                    p(class="role") Role: #{role}
+                    br 
+                    br
+                    button(class="change-password") Change Password
+                    br
+                    br
+                    .change-password-container.hidden
+                        form(class="change-password-form")
+                            table(class="change-password-table")
+                                tr
+                                    td Original Password :
+                                    td 
+                                        input(type="password" name="old_pass")
+                                tr 
+                                    td New Password :
+                                    td 
+                                        input(type="password" name="new_pass_1")
+                                tr
+                                    td Confirm New Password :
+                                    td
+                                        input(type="password" name="new_pass_2")
+                        button(class="confirm-change-password") Confirm Change
+
+                .notifications
+                    .notification-title 
+                        span Notifications : 
+                        img(src="./static/images/notification.png")
+                    each request, i in requests
+                        a(href=`/view_request/${request.request_id}` class="request")
+                            p Your request '#{records[i].title}' at room 'Room #{records[i].room}' has been 
+                            case (request.status)
+                                when 1
+                                    p(class = "status rejected") Rejected
+                                when 2
+                                    p(class = "status confirmed") Approved

@@ -1,0 +1,73 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    background: repeating-linear-gradient(
+        45deg,
+    #dedd97,
+    #dedd97 5vw,
+    #b6e491 5vw,
+    #b6e491 10vw
+    );
+    display: flex;
+    align-items: center;
+}
+.login-container {
+    width: 380px;
+    height: calc(70vh - 120px);
+    box-shadow: 4px 3px 9px 0px #a5a5a5;
+    background-color: white;
+    margin: 0 auto;
+    border-radius: 15px;
+    font-family: Arial;
+    padding: 60px;
+}
+.login-container > form {
+    margin-top: 60px;
+}
+.login-container > form > label {
+    color: rgb(77, 77, 77);
+    font-size: 0.4cm;
+}
+.login-container > form > input {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid gray;
+    width: 380px;
+    height: 1cm;
+    font-size: 0.6cm;
+}
+.login-container > form > input:focus {
+    border-left: none;
+    border-right: none;
+    border-top: none;
+    border-bottom: 2px solid gray;
+}
+#submit {
+    margin-top: 80px;
+    height: 50px;
+    border-radius: 10px;
+    border: 2px solid rgb(126, 126, 126);
+    background-color: #c7c7c7;
+}
+#submit:hover {
+    background-color: rgb(208, 208, 208);
+}
+.title {
+    font-size: 0.8cm;
+    font-weight: bold;
+    margin-top: 0px;
+    text-align: center;
+}
+body {
+    margin: 0px;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+.message {
+    margin-top: 80px !important;
+    font-size: 0.6cm;
+    text-align: center;
+    font-weight: bold;
+}

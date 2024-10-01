@@ -1,0 +1,130 @@
+.main-page {
+    padding-left: 30vw;
+}
+.request-container {
+    width: calc(40vw - 20px);
+    height: calc(90vh - 40px);
+    background-color: white;
+    box-shadow: 2px 2px 5px rgb(165, 165, 165);
+    padding: 10px;
+    position: relative;
+}
+.request-container .title {
+    font-weight: bold;
+    font-size: 2em;
+}
+.cancel-request {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -12px;
+    right: -12px;
+    border-radius: 15px;
+    appearance: none;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    background-color: transparent;
+    transition: 0.1s;
+}
+.cancel-request img {
+    width: 24px;
+    height: 24px;
+    transition: 0.1s;
+}
+.cancel-request:hover img {
+    width: 28px;
+    height: 28px;
+}
+.cancel-request:hover {
+    top: -14px;
+    right: -10px;
+}
+.cancel-request .tooltip {
+    top: -25px;
+    left: 25px;
+}
+.tooltip {
+    position: absolute;
+    visibility: hidden;
+    border: 1px solid black;
+    background-color: white;
+    transition: 0.1s;
+    width: max-content;
+    overflow: hidden;
+    z-index: 1;
+    opacity: 0;
+    padding: 3px;
+}
+*:hover > .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+.status {
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    font-size: large;
+}
+.record-container {
+    border: 2px solid black;
+    background-color: rgb(223, 223, 223);
+    padding: 7px;
+    display: block;
+}
+.record-container > .subtext {
+    font-size: 0.7em;
+    color: rgb(123, 123, 123);
+}
+.buttons-container {
+    border: 1px solid black;
+    border-radius: 2px;
+    box-shadow: 2px 2px 3px rgb(216, 216, 216);
+    background-color: rgb(235, 235, 235);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 8px;
+    width: max-content;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+}
+.buttons-container > button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+    appearance: none;
+    margin-left: 8px;
+    padding: 0px;
+    background-color: rgb(219, 219, 219);
+    transition: 0.1s;
+}
+.buttons-container > button > img {
+    margin-top: 5px;
+    margin-left: 5px;
+    width: 30px;
+    height: 30px;
+}
+.buttons-container .tooltip {
+    top: -30px;
+    left: 30px;
+}
+.buttons-container > button:hover{
+    background-color: rgb(234, 234, 234);
+}
+.reject-container.hidden {
+    display: none;
+}
+.reject-container {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: max-content;
+    border: 1px solid black;
+    padding: 5px;
+}
+.reject-container > form > textarea {
+    width: 30vw;
+    height: max-content;
+}

@@ -1,0 +1,76 @@
+doctype html
+html
+    head
+        title Book Venue
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="stylesheet", href="/static/styles/main.css")
+        link(rel="stylesheet", href="/static/styles/book_venue.css")
+    body
+        script(src = '/static/scripts/schedule.js')
+        script(src = '/static/scripts/book_venue.js')
+        .container
+            .top-bar
+                img(src = '/static/images/school_icon.png' class = 'school-icon') 
+                .title School Venue Booking
+                a(href = '/logout' class = 'logout') 
+                    img(src = '/static/images/logout_icon.png')
+                    div Logout
+            .navigation-bar
+                ul(class = 'navigation')
+                    li
+                        a(href = '/home') Home
+                    li
+                        a(href = '/schedule') Schedule
+                    li 
+                        a(href = '/book_venue') Book Venues
+                    li 
+                        a(href = '/my_requests') My Requests
+                    if (role === "teacher")
+                        li
+                            a(href = '/pending_requests') Pending Requests
+            .main-page
+                .form-container
+                    .form-title Booking Information :
+                    form(class='form' onsubmit="return validateForm();" action="/book_venue" method="post")
+                        table(class="booking-input-table")
+                            tr
+                                td Date :
+                                td
+                                    input(type="date" name="date" value="2023-06-04" class="date-input" required)
+                            tr
+                                td Title :
+                                td
+                                    input(type="text" name="title" required)
+                            tr
+                                td Description : 
+                                td
+                                    input(type="text" name="description" required)
+                            tr
+                                td From :
+                                td
+                                    input(type="time" name="from_time" class="from-time" required)
+                            tr
+                                td to :
+                                td
+                                    input(type="time" name="to_time" class="to-time" required)
+                            tr
+                                td Venue :
+                                td
+                                    select(name="room" class = "room" required)
+                                        each room in rooms
+                                            option #{room}
+                        if (role != "teacher")
+                            .reason Reason: 
+                                textarea(name="reason" rows="5" required)
+                        input(type="submit")
+                .schedule-viewer
+                    .viewer-title 
+                        .viewer-title-text Schedule Viewer
+                        .schedule-date-container
+                            button(class = "schedule-date-yesterday") ◂
+                            p(class = 'schedule-date') #{today.toDateString()}
+                            button(class = "schedule-date-tomorrow") ▸
+                        img(class = 'schedule-colors' src = './static/images/schedule_viewer_colors.png')
+                    .schedule-container
+                        .records-container
+                        canvas(class = "schedule-canvas")

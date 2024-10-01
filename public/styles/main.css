@@ -1,0 +1,88 @@
+body {
+    margin: 0px;
+    font-family: Arial;
+    background-color: #e3f3fe;
+}
+.container {
+    position: relative;
+}
+.main-page {
+    display: flex;
+    padding: 10px;
+}
+.top-bar {
+    width: 100vw;
+    height: 6vh;
+    background-color: rgb(83, 157, 242);
+    display: flex;
+    position: relative;
+}
+.top-bar .school-icon {
+    margin-top: 0.5vh;
+    margin-left: 0.5vh;
+    width: 5vh;
+    height: 5vh;
+}
+.top-bar .title {
+    height: 6vh;
+    line-height: 6vh;
+    margin-left: 20px;
+    font-size: 0.8cm;
+    text-align: center;
+    font-weight: bold;
+    color: white;
+}
+.top-bar .logout {
+    position: absolute;
+    right: 20px;
+    font-size: 0.6cm;
+    font-family: Arial;
+    line-height: 6vh;
+    text-decoration: none;
+    display: flex;
+    color: white;
+}
+.top-bar .logout:hover {
+    background-color: rgb(109, 177, 254);
+}
+.top-bar .logout > img {
+    width: 6vh;
+    height: 6vh;
+}
+.navigation-bar {
+    width: 100vw;
+    height: 4vh;
+    background-color: rgb(251, 255, 209);
+}
+.navigation {
+    width: 100vw;
+    height: 4vh;
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    font-size: 0.5cm;
+    text-align: center;
+    list-style: none;
+}
+.navigation > li {
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 4vh;
+    line-height: 4vh;
+}
+.navigation > li:hover {
+    color: rgb(90, 90, 90);
+    cursor: pointer;
+    background-color: #f3f3f3;
+}
+.navigation > li > a {
+    text-decoration: none;
+    color: black;
+}
+.navigation > li > a:hover {
+    color: rgb(90, 90, 90);
+}
+a {
+    text-decoration: none;
+    color: black
+}

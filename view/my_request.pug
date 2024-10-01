@@ -1,0 +1,54 @@
+doctype html
+html
+    head
+        title My Requests
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="stylesheet", href="/static/styles/main.css")
+        link(rel="stylesheet", href="/static/styles/pending_request.css")
+    body
+        .container
+            .top-bar
+                img(src='/static/images/school_icon.png' class='school-icon') 
+                .title School Venue Booking
+                a(href='/logout' class='logout') 
+                    img(src='/static/images/logout_icon.png')
+                    div Logout
+            .navigation-bar
+                ul(class='navigation')
+                    li
+                        a(href='/home') Home
+                    li
+                        a(href = '/schedule') Schedule
+                    li 
+                        a(href='/book_venue') Book Venues
+                    li 
+                        a(href='/my_requests') My Requests
+                    if (role === "teacher")
+                        li
+                            a(href = '/pending_requests') Pending Requests
+            .main-page
+                .main-container
+                    .requests-container
+                        each request, i in requests
+                            a(href=`/view_request/${request.request_id}` class="request")
+                                p(class="title") Title: #{records[i].title} 
+                                p(class="room") Room: #{records[i].room}
+                                .right-align
+                                    case (request.type)
+                                        when 0
+                                            p(class="request-type") Request: Book Venue
+                                        when 1
+                                            p(class="request-type") Request: Cancel Booking
+                                        when 2
+                                            p(class="request-type") Request: Change Booking
+                                    p(class="status") Status: 
+                                        case (request.status)
+                                            when 0
+                                                span Pending
+                                            when 1
+                                                span(style="color: red;") Rejected
+                                            when 2
+                                                span(style="color: lime;") Confirmed
+
+
+                

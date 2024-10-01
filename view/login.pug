@@ -1,0 +1,23 @@
+doctype html
+html
+    head
+        title Login Page
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="icon" type="image/x-icon" href="/static/images/school_icon.png")
+        link(rel="stylesheet", href="/static/styles/login.css")
+    body
+        .container
+            .login-container
+                .title School Venue Booking
+                form(action="/login" method="post")
+                    label Username
+                    br
+                    input(type="text" name="username" placeholder="Enter Username")
+                    br 
+                    br
+                    label Password
+                    br 
+                    input(type="password" name="password" placeholder="Enter Password")
+                    br
+                    input(type="submit" value="Login" id="submit")
+                    .message 

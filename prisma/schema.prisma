@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Booking_record {
+  record_id Int @unique
+  at DateTime
+  from_time Int
+  to_time Int
+  room String 
+  author String
+  title String
+  description String
+  visible Boolean
+}
+
+model Requests {
+  request_id Int @unique
+
+  record_id_1 Int
+  record_id_2 Int?
+
+  author String
+  reason String
+  status Int //Pending: 0, Rejected: 1, Confirmed: 2
+  type Int //create record: 0, delete record: 1, update record: 2.
+  reject_reason String?
+  reviewed_by String?
+}
+
+model Users {
+  username String @unique
+  password String
+  permission Int
+}
